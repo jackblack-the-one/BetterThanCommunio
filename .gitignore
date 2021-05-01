@@ -4,3 +4,9 @@ __pycache__
 __pycache__/
 *.py[cod]
 .vscode
+bettercore/db.sqlite3
+bettercore/db.sqlite3
+bettercore/bettercore/__pycache__/__init__.cpython-38.pyc
+bettercore/bettercore/__pycache__/settings.cpython-38.pyc
+bettercore/bettercore/__pycache__/wsgi.cpython-38.pyc
+bettercore/bettercore/__pycache__/urls.cpython-38.pyc
