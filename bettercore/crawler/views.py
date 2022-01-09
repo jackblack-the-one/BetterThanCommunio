@@ -7,4 +7,4 @@ from django.shortcuts import render
 class iDoSomeShit():
 
     def someShit(self):
-        print("shit!")
+        print("hello my good old friend!")
