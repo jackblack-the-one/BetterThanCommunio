@@ -1,3 +1,10 @@
+from urllib.parse import urljoin
+import requests
+from bs4 import BeautifulSoup
+url = "https://www.kicker.de/bundesliga/vereine"
+url1 = "https://www.kicker.de/"
+
+
 class CrawledPlayer():
     def __init__(self, team, name, position, notes):
         self.team = team
@@ -52,4 +59,4 @@ class PlayerFetcher():
                                 crawled = CrawledPlayer(team, name, position, notes)
                                 players.append(crawled)
             url = ""
-        return players
+        return players.
