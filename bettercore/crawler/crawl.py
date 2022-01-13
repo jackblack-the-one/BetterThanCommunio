@@ -17,12 +17,18 @@ class PlayerFetcher():
     def fetch(self):
         url = "https://www.kicker.de/bundesliga/vereine"
         players = []
-
+        list2 = []
+        counter = 0
         while url != "":
             r = requests.get(url)
             doc = BeautifulSoup(r.text, "html.parser")
             for tr in doc.select("tr"):
+                if counter == 50:
+                    url = ""
+                    break
                 for td in tr:
+                    if counter == 50:
+                        break
                     if "Kader" in td.text:
                         next_url = td.a.attrs["href"]
                         next_url = urljoin(url1, next_url)
@@ -31,6 +37,9 @@ class PlayerFetcher():
                         doc1 = BeautifulSoup(r1.text, "html.parser")
 
                         for tr1 in doc1.select("tr"):
+                            print(counter)
+                            if counter == 50:
+                                break
                             x = tr1.select_one(".kick__table--resptabelle .kick__table--ranking__rank")
                             if x != None and x.text != "Nr.":
                                 y = tr1.select_one(".kick__table--resptabelle .kick__respt-m-w-190")
@@ -58,5 +67,12 @@ class PlayerFetcher():
                                     notes = list
                                 crawled = CrawledPlayer(team, name, position, notes)
                                 players.append(crawled)
+                                counter += 1
             url = ""
-        return players.
+        
+        for player in players:
+            list2.append("Player " + player.name + "" + player.team + "" + player.position)
+        print(list2)
+        #return players.
+a = PlayerFetcher()
+a.fetch()
